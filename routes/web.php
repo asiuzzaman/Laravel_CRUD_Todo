@@ -26,3 +26,6 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/todos', 'TodoController@showAll');
 Route::post('/todos', 'TodoController@create');
 Route::post('/todos/delete','TodoController@delete');
+Route::get('/todos/edit/{id}', 'TodoController@editForm');
+Route::post('/todos/edit/{id}', 'TodoController@edit');
+

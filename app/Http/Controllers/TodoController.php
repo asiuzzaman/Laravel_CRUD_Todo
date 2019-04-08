@@ -32,6 +32,12 @@ class TodoController extends Controller{
         return redirect('/todos');
     }
   
+    public function editForm(Request $request) {
+        $todo = Todo::find($request->id);
+        $data['todo'] = $todo;
+        return view('todos.edit', $data);
+    }
+
     public function edit(Request $request){
         
         $todo = Todo::find($request->id);

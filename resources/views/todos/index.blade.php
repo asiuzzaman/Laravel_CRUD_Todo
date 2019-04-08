@@ -20,6 +20,8 @@
                     <input type="hidden" name="id" value="{{ $todo->id }}">
                     <input type="submit" class="btn btn-outline-danger" value="Delete">
                 </form>
+
+                <a href="{{ url('todos/edit/'.$todo->id) }}" class="btn btn-outline-primary">Edit</a>
             </li>
         @endforeach
     </ol>    
