@@ -24,3 +24,5 @@ Route::get('/home', 'HomeController@index')->name('home');
  * Route::request_method('url', 'controller@controller_method');
  */
 Route::get('/todos', 'TodoController@showAll');
+Route::post('/todos', 'TodoController@create');
+Route::post('/todos/delete','TodoController@delete');
