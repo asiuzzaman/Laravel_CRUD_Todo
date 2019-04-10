@@ -19,14 +19,13 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
-
-/**
+/**;
  * 
  * Route::request_method('url', 'controller@controller_method');
  */
-Route::get('/todos', 'TodoController@showAll');
-Route::post('/todos', 'TodoController@create');
-Route::post('/todos/delete','TodoController@delete');
-Route::get('/todos/edit/{id}', 'TodoController@editForm');
-Route::post('/todos/edit/{id}', 'TodoController@edit');
+Route::get('/todos', 'TodoController@showAll')->name('todoShowAll');
+Route::post('/todos', 'TodoController@create')->name('todoCreate');
+Route::post('/todos/delete','TodoController@delete')->name('todoControllerDelete');
+Route::get('/todos/edit/{id}', 'TodoController@editForm')->name('todoControllerEditFrom');
+Route::post('/todos/edit/{id}', 'TodoController@edit')->name('todoControllerEdit');
 
