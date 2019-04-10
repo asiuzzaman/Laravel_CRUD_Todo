@@ -3,13 +3,16 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use App\Todo;
 
 class TodoController extends Controller{
     //
+
     public function create(Request $request) {
         $todo = new Todo;
 
+        $todo->user_id = Auth::user()->id;
         $todo->name = $request->name;
         $todo->description = $request->description;
 
@@ -33,14 +36,17 @@ class TodoController extends Controller{
     }
   
     public function editForm(Request $request) {
+        
+        
         $todo = Todo::find($request->id);
         $data['todo'] = $todo;
         return view('todos.edit', $data);
     }
 
     public function edit(Request $request){
-        
+                 
         $todo = Todo::find($request->id);
+        
         $todo->name= $request->name;
         $todo->description= $request->description;
         $todo->save();
