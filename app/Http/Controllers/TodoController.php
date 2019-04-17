@@ -9,6 +9,11 @@ use App\Todo;
 class TodoController extends Controller{
     //
 
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
     public function create(Request $request) {
         $todo = new Todo;
 
@@ -22,6 +27,7 @@ class TodoController extends Controller{
 
     }
     public function showAll(){
+        
         $todos = Todo::all();
         $data['todos'] = $todos;
         return view('todos.index', $data);
@@ -29,7 +35,7 @@ class TodoController extends Controller{
     }
      
     public function delete(Request $request){
-        $todo = Todo:: find($request->id);
+        $todo = Todo::find($request->id);
         // dd($request->id);
         $todo->delete();
         return redirect('/todos');
