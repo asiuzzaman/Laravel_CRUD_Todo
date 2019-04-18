@@ -4,6 +4,7 @@ namespace Tests\Unit;
 
 use Tests\TestCase;
 use Illuminate\Foundation\Testing\RefreshDatabase;
+use \App\Models\User;
 
 class TodoTest extends TestCase
 {
@@ -13,8 +14,35 @@ class TodoTest extends TestCase
      * @return void
      * @test
      */
-    public function test_if_Created_or_Not()
+    public function BasicTest()
     {
-        $this->assertTrue(true);
+        $this->assertFalse(false);
     }
+
+    /**
+     * @test
+     **/
+    public function takeAName(){
+
+        $user =new User;
+
+        $user->setName('Bangladesh');
+
+        $this->assertEquals($user->getName(),'Bangladesh');
+
+    }
+
+    /**
+     * @test
+     **/
+    public function takeAnotherName(){
+
+        $user =new User;
+
+        $user->setAnotherName('ABeautifulCountry');
+
+        $this->assertEquals($user->getAnotherName(),'ABeautifulCountry');
+
+    }
+
 }
